@@ -3,7 +3,10 @@ license: apache-2.0
 library_name: onnx
 tags:
   - vocoder
+  - neural-vocoder
   - nsf-hifigan
+  - hifigan
+  - audio
   - singing-voice-synthesis
   - diffsinger
   - openutau
@@ -13,7 +16,7 @@ tags:
 
 Current version: 2026.11
 
-An NSF-HiFiGAN vocoder for DiffSinger / OpenUtau, made for the Chiaki voicebank and trained from scratch. It is a drop-in replacement for the 44.1 kHz, 128-bin community vocoders: same mel settings and interface. The weights are released under the Apache License 2.0: they can be used commercially, fine-tuned and redistributed, as long as the license and NOTICE.txt are kept. Training details are in [NOTES.md](NOTES.md).
+An NSF-HiFiGAN vocoder (mel + f0 to waveform), made for the Chiaki voicebank and trained from scratch. It uses the same mel settings and interface as the OpenVPI 44.1 kHz, 128-bin community vocoders, so it should work with anything that produces those mels and an f0 curve. Tested with DiffSinger / OpenUtau; other uses are untested. The weights are released under the Apache License 2.0: they can be used commercially, fine-tuned and redistributed, as long as the license and NOTICE.txt are kept. Training details are in [NOTES.md](NOTES.md).
 
 ## Files
 
@@ -35,6 +38,7 @@ Checksums are in `SHA256SUMS`.
 - Inputs: `mel` float32 [1, T, 128] (natural-log magnitude) and `f0` float32 [1, T] in Hz. Output: `waveform` float32 [1, T × 512].
 - Mel settings: 44.1 kHz, hop 512, window and FFT 2048, 128 bins, 40–16000 Hz, slaney.
 - The acoustic model must use the same mel settings.
+- Trained mostly on singing. Speech and low male voices are untested.
 
 ## Using it in OpenUtau
 
