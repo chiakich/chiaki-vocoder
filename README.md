@@ -38,7 +38,7 @@ Checksums are in `SHA256SUMS`.
 - Inputs: `mel` float32 [1, T, 128] (natural-log magnitude) and `f0` float32 [1, T] in Hz. Output: `waveform` float32 [1, T × 512].
 - Mel settings: 44.1 kHz, hop 512, window and FFT 2048, 128 bins, 40–16000 Hz, slaney.
 - The acoustic model must use the same mel settings.
-- Trained mostly on singing. Speech and low male voices are untested.
+- Trained mostly on singing, and mostly on female voices. Speech is untested.
 
 ## Using it in OpenUtau
 
@@ -62,6 +62,7 @@ Blind A/B listening tests against OpenVPI pc_nsf_hifigan 2025.02, on DiffSinger 
 - Known weaknesses:
   - Tone shift sounds less natural than pc_nsf's. A pc_aug experiment is planned.
   - Some breath noises and inhales sound less natural than pc_nsf's.
+  - Low male voices (below about C3) sound rougher than with pc_nsf, because the training data is mostly female. Work on this is in progress.
 
 ## Training
 

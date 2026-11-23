@@ -114,6 +114,7 @@ The modified task for CQTD and the extra losses is not included in this reposito
 ## Known issues
 
 - **Tone shift** sounds less natural than pc_nsf's (see above). A pc_aug experiment is planned.
+- **Low male voices** (below about C3) sound rougher than with pc_nsf, because the training data is mostly female. On a baritone DiffSinger voicebank, with the same mel through both vocoders, median HNR on held A2–C3 notes was 16 dB vs pc_nsf's 29 dB. Above about A3 the two were equal. Work on this is in progress.
 - **Inhales and breath noise** sound less natural than pc_nsf's and follow the fine structure of the input mel less closely. A texture loss and mel-shaped noise on breath frames did not help. Noise that follows the mel more closely sounded worse, so mel fine-structure correlation is not a good target.
 
 ## Cost
