@@ -1,0 +1,165 @@
+# chiaki_vocoder_2026.11 final-stage training config (stage 7 in NOTES.md): 12000 global steps (6000 real steps).
+# Base: openvpi/SingingVocoders a930663; the final-stage overrides are at the bottom.
+# use_cqtd, lab_harm_gap, lab_band_bias need the modified task
+# (training/nsf_HiFigan_cqt_task.py), which is not part of upstream SingingVocoders.
+DataIndexPath: path/to/your/index
+audio_num_mel_bins: 128
+audio_sample_rate: 44100
+aug_num: 1
+batch_size: 10
+binarization_args:
+  num_workers: 8
+  shuffle: true
+binary_data_dir: null
+clip_grad_norm: null
+crop_mel_frames: 48
+data_input_path: []
+data_out_path: []
+dataloader_prefetch_factor: 2
+discriminate_optimizer_args:
+  beta1: 0.8
+  beta2: 0.99
+  lr: 0.0001
+  optimizer_cls: torch.optim.AdamW
+  weight_decay: 0
+ds_workers: 4
+f0_max: 1400
+f0_min: 65
+fft_size: 2048
+finetune_ckpt_path: null  # finetune/chiaki_vocoder_2026.11_GD.ckpt, with finetune_enabled: true
+finetune_enabled: false
+finetune_ignored_params: []
+finetune_strict_shapes: true
+fmax: 16000
+fmax_for_loss: null
+fmin: 40
+freezing_enabled: false
+frozen_params: []
+generater_optimizer_args:
+  beta1: 0.8
+  beta2: 0.99
+  lr: 0.0001
+  optimizer_cls: torch.optim.AdamW
+  weight_decay: 0
+hop_size: 512
+lab_aux_melloss: 45
+log_interval: 100
+loss_fft_sizes:
+- 2048
+- 2048
+- 4096
+- 1024
+- 512
+- 256
+- 128
+- 1024
+- 2048
+- 512
+loss_hop_sizes:
+- 512
+- 240
+- 480
+- 100
+- 50
+- 25
+- 12
+- 120
+- 240
+- 50
+loss_win_lengths:
+- 2048
+- 1200
+- 2400
+- 480
+- 240
+- 120
+- 60
+- 600
+- 1200
+- 240
+lr_scheduler_args:
+  min_lr: 1.0e-05
+  scheduler_cls: lr_scheduler.scheduler.WarmupLR
+  warmup_steps: 5000
+max_updates: 488000
+mel_vmax: 1.5
+mel_vmin: -6.0
+model_args:
+  discriminator_periods:
+  - 3
+  - 5
+  - 7
+  - 11
+  - 17
+  - 23
+  - 37
+  mini_nsf: false
+  noise_sigma: 0.0
+  resblock: '1'
+  resblock_dilation_sizes:
+  - - 1
+    - 3
+    - 5
+  - - 1
+    - 3
+    - 5
+  - - 1
+    - 3
+    - 5
+  resblock_kernel_sizes:
+  - 3
+  - 7
+  - 11
+  upsample_initial_channel: 512
+  upsample_kernel_sizes:
+  - 16
+  - 16
+  - 4
+  - 4
+  - 4
+  upsample_rates:
+  - 8
+  - 8
+  - 2
+  - 2
+  - 2
+nccl_p2p: true
+num_ckpt_keep: 3
+num_sanity_val_steps: 2
+num_valid_plots: 100
+pc_aug: false
+pc_aug_key: 12
+pc_aug_rate: 0.5
+pe: parselmouth
+permanent_ckpt_interval: 100000
+permanent_ckpt_start: 100000
+pl_trainer_accelerator: auto
+pl_trainer_devices: auto
+pl_trainer_num_nodes: 1
+pl_trainer_precision: 32-true
+pl_trainer_strategy:
+  find_unused_parameters: true
+  name: auto
+  process_group_backend: nccl
+raw_data_dir: []
+seed: 114514
+task_cls: training.nsf_HiFigan_cqt_task.nsf_HiFigan_cqt
+train_set_name: train
+val_check_interval: 2000
+val_num: 1
+valid_set_name: valid
+volume_aug: true
+volume_aug_prob: 0.5
+win_size: 2048
+# --- final-stage overrides ---
+use_stftloss: true
+lab_aux_stftloss: 10
+use_cqtd: true
+d_highpass_hz: 45
+lab_harm_gap: 5
+harm_gap_uv_weight: 0.3
+lab_band_bias: 5
+key_aug: true
+key_aug_prob: 0.5
+aug_min: 1.0
+aug_max: 1.9

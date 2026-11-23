@@ -1,0 +1,24 @@
+chiaki_vocoder_2026.11
+NSF-HiFiGAN vocoder made for the Chiaki voicebank
+Copyright 2026 Chiaki.C
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+It covers all files in this repository, including the model weights
+(chiaki_vocoder_2026.11.onnx, chiaki_vocoder_2026.11.ckpt, finetune/chiaki_vocoder_2026.11_GD.ckpt).
+
+Training data
+- VocalSet, Julia Wilkins, Prem Seetharaman, Alison Wahl, Bryan Pardo.
+  Licensed under CC BY 4.0. https://zenodo.org/records/1442513
+- NIT SONG070 F001, Nagoya Institute of Technology.
+  Licensed under CC BY 3.0. http://hts.sp.nitech.ac.jp/
+- Recordings by Chiaki.C (the Chiaki voicebank creator), used by the copyright
+  holder. The recordings themselves are not distributed.
+
+Training code
+- Trained from scratch with openvpi/SingingVocoders (MIT, commit a930663).
+  The multi-scale sub-band CQT discriminator was adapted from Amphion (MIT).
+- No weights from OpenVPI pc_nsf_hifigan or from any other pretrained vocoder
+  were used.
+
+This license applies to the vocoder only. The Chiaki voicebank and its
+recordings remain under the voicebank's own terms of use.

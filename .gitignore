@@ -1,0 +1,5 @@
+# Weights are distributed as release assets and on Hugging Face
+*.onnx
+*.ckpt
+dist/
+.DS_Store
