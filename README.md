@@ -1,4 +1,4 @@
-# chiaki-vocoder
+# Chiaki-Vocoder
 
 > **The main home of this project is Hugging Face: [huggingface.co/chiakic/chiaki-vocoder](https://huggingface.co/chiakic/chiaki-vocoder).** Each version is published there first. This repository mirrors the docs, and the [Releases](https://github.com/chiakich/chiaki-vocoder/releases/latest) page has the OpenUtau package.
 
