@@ -1,10 +1,10 @@
-chiaki_vocoder_2026.11
+chiaki_vocoder_2026.11.1
 NSF-HiFiGAN vocoder made for the Chiaki voicebank
 Copyright 2026 Chiaki.C
 
 This product is licensed under the Apache License, Version 2.0 (see LICENSE).
 It covers all files in this repository, including the model weights
-(chiaki_vocoder_2026.11.onnx, chiaki_vocoder_2026.11.ckpt, finetune/chiaki_vocoder_2026.11_GD.ckpt).
+(chiaki_vocoder_2026.11.1.onnx, chiaki_vocoder_2026.11.1.ckpt, finetune/chiaki_vocoder_2026.11.1_GD.ckpt).
 
 Training data
 - VocalSet, Julia Wilkins, Prem Seetharaman, Alison Wahl, Bryan Pardo.

@@ -1,5 +1,5 @@
-name: chiaki_vocoder_2026.11
-model: chiaki_vocoder_2026.11.onnx
+name: chiaki_vocoder_2026.11.1
+model: chiaki_vocoder_2026.11.1.onnx
 sample_rate: 44100
 hop_size: 512
 win_size: 2048

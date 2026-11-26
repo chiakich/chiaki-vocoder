@@ -161,5 +161,5 @@ harm_gap_uv_weight: 0.3
 lab_band_bias: 5
 key_aug: true
 key_aug_prob: 0.5
-aug_min: 1.0
+aug_min: 0.5
 aug_max: 1.9
